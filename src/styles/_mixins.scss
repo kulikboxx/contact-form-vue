@@ -1,0 +1,51 @@
+@use './colors' as *;
+
+@mixin BaseFormElementStyle {
+  padding: 1rem 1.4rem;
+  width: 100%;
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  background-color: $white;
+  border: 1px solid $light;
+  border-radius: 8px;
+}
+
+@mixin BaseFormElementDefaultFocus {
+  &:focus {
+    outline: none;
+
+    &-visible {
+      outline: 4px solid $violet-outline;
+    }
+  }
+}
+
+@mixin BaseFormElementDisabled {
+  filter: brightness(0.95);
+  pointer-events: none;
+  user-select: none;
+
+  &:focus-visible {
+    outline: none;
+  }
+}
+
+@mixin BaseFormElementInvalid {
+  border-color: $red;
+
+  &:focus-visible {
+    outline-color: $red-outline;
+  }
+}
+
+@mixin BaseFormElementInvalidMessage {
+  color: $red;
+  font-size: 1.2rem;
+}
+
+@mixin RegularPlaceholder {
+  color: $placeholder;
+  font-weight: 400;
+}
